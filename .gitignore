@@ -23,3 +23,5 @@ _testmain.go
 *.test
 
 openvz/ginux-template
+config.json
+ginux-openvz
