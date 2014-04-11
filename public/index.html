@@ -1,0 +1,63 @@
+<!doctype html>
+<title></title>
+<style>
+  h1 {
+    margin-bottom: 20px;
+    font: 20px/1.5 sans-serif;
+  }
+
+  .terminal {
+    float: left;
+    border: #000 solid 5px;
+    font-family: "DejaVu Sans Mono", "Liberation Mono", monospace;
+    font-size: 11px;
+    color: #f0f0f0;
+    background: #000;
+  }
+
+  .terminal-cursor {
+    color: #000;
+    background: #f0f0f0;
+  }
+</style>
+<script src="term.min.js"></script>
+<script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'></script>
+<script>
+;(function() {
+  window.onload = function() {
+    var server = "ws://"+document.location.host+"/ws"
+    var websocket = new WebSocket(server);
+    websocket.onopen = function() {
+      var term = new Terminal({
+        cols: 120,
+        rows: 36,
+        useStyle: true,
+        screenKeys: true
+      });
+
+      websocket.onmessage = function (msg) {
+        term.write(msg.data);
+      }
+
+      term.on('data', function(data) {
+        websocket.send(data)
+      });
+
+      term.on('title', function(title) {
+        document.title = title;
+      });
+
+      term.open(document.getElementById("term"));
+    };
+    websocket.onclose = function(){
+ 		   $('#error').empty().append("Lost Connection to websocket");
+ 	  };
+    websocket.onerror = function(err){
+       $('#error').empty().append("Error: " + err.data);
+    };
+  };
+}).call(this);
+</script>
+<a href="https://github.com/gamingrobot/ginux-openvz">Source Code</a>
+<div id="error" style="color:red"></div>
+<div id="term"></div>
