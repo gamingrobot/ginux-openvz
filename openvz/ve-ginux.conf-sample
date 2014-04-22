@@ -25,12 +25,13 @@ PHYSPAGES="0:10M"
 SWAPPAGES="0:20M"
 
 # Disk quota parameters (in form of softlimit:hardlimit)
-DISKSPACE="100M:120M"
+DISKSPACE="250M:270M" #Ploop requires a disk size > 210M
 DISKINODES="200000:220000"
 QUOTATIME="0"
 
 # CPU fair scheduler parameter
 CPUUNITS="1000"
+CPULIMIT="10" #10%
 VE_ROOT="/vz/root/$VEID"
 VE_PRIVATE="/vz/private/$VEID"
 OSTEMPLATE="ginux-template"
