@@ -18,6 +18,8 @@
 # This config is only valid for decent VSwap-enabled kernel
 # (version 042stab042 or later).
 
+VE_LAYOUT=simfs
+
 # RAM
 PHYSPAGES="0:10M"
 
@@ -25,7 +27,7 @@ PHYSPAGES="0:10M"
 SWAPPAGES="0:20M"
 
 # Disk quota parameters
-DISKSPACE="20M"
+DISKSPACE="10M:20M"
 DISKINODES="200000"
 QUOTATIME="0"
 
