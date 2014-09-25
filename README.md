@@ -8,6 +8,9 @@
 
 * Copy ve-ginux.conf-sample to /etc/vz/conf
 
+* Copy ginux.mount to /etc/vz/conf/
+
+
 To create a new OpenVZ container from this template:
 
 vzctl create ${NUMBER} --config ginux
