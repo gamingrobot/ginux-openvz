@@ -1,0 +1,13 @@
+#!/bin/bash
+. /etc/vz/vz.conf
+. ${VE_CONFFILE}
+
+SRC=/root/ginux-mount/bin
+DST=/bin
+if [ ! -e ${VE_ROOT}${DST} ]; then mkdir -p ${VE_ROOT}${DST}; fi
+mount -n -r -t simfs ${SRC} ${VE_ROOT}${DST} -o ${SRC}
+
+SRC=/root/ginux-mount/sbin
+DST=/sbin
+if [ ! -e ${VE_ROOT}${DST} ]; then mkdir -p ${VE_ROOT}${DST}; fi
+mount -n -r -t simfs ${SRC} ${VE_ROOT}${DST} -o ${SRC}
