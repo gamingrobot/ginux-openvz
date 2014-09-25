@@ -1,4 +1,4 @@
-#  Copyright (C) 2000-2011, Parallels, Inc. All rights reserved.
+#  Copyright (C) 2000-2011, Parallels, Inc. All rights reserved.
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -27,8 +27,8 @@ PHYSPAGES="0:10M"
 SWAPPAGES="0:20M"
 
 # Disk quota parameters
-DISKSPACE="10M:20M"
-DISKINODES="200000"
+DISKSPACE="10M:15M"
+DISKINODES="2000"
 QUOTATIME="0"
 
 # CPU fair scheduler parameter
